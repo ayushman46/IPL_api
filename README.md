@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # IPL Match Predictor
 
 A comprehensive Machine Learning application that predicts IPL match outcomes and provides detailed statistics.
@@ -157,3 +158,6 @@ Venue performance (40%)
 Overall win percentage (30%)
 Recent form (20%)
 Head-to-head record (10%)
+=======
+# IPL
+>>>>>>> b0ca3e60cf9a513f87c5344c4498209a00a7ddac
