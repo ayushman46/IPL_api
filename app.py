@@ -213,11 +213,17 @@ def get_venue_stats_for_teams(team1, team2, venue):
     venue_data = venue_stats.get(venue, {'total_matches': 0, 'team_stats': {}})
     
     team1_venue_stats = venue_data['team_stats'].get(team1, {
-        'matches': 0, 'wins': 0, 'losses': 0, 'win_percentage': 0
+        'matches': 0, 
+        'wins': 0,
+        'losses': 0,
+        'win_percentage': 0
     })
     
     team2_venue_stats = venue_data['team_stats'].get(team2, {
-        'matches': 0, 'wins': 0, 'losses': 0, 'win_percentage': 0
+        'matches': 0, 
+        'wins': 0,
+        'losses': 0, 
+        'win_percentage': 0
     })
     
     return {
@@ -691,9 +697,14 @@ def predict_api(team1, team2, venue):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+# Add a health check endpoint
+@app.route('/api/health')
+def health_check():
+    return jsonify({"status": "healthy"}), 200
+
 if __name__ == '__main__':
     print("Starting IPL Match Predictor...")
     print("Make sure you have run trainmodel.py first to create all required pickle files")
     print("Access the application at: http://localhost:5000")
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 10000))
     app.run(host='0.0.0.0', port=port)

@@ -6,5 +6,5 @@ __pycache__/
 env/
 venv/
 .env
-*.pkl
+.venv
 .DS_Store
