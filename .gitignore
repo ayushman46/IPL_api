@@ -1,4 +1,10 @@
 __pycache__/
 *.pyc
+*.pkl
 venv/
 .env
+.venv
+.idea/
+.vscode/
+*.log
+*.db
