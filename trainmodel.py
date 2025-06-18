@@ -126,12 +126,13 @@ def standardize_venue_names(df):
         'Arun Jaitley Stadium, Delhi': 'Arun Jaitley Stadium',
         
         # MA Chidambaram Stadium variations
-        'MA Chidambaram Stadium': 'MA Chidambaram Stadium',
-        'M. A. Chidambaram Stadium': 'MA Chidambaram Stadium',
-        'M.A. Chidambaram Stadium': 'MA Chidambaram Stadium',
-        'Chepauk Stadium': 'MA Chidambaram Stadium',
-        'MA Chidambaram Stadium, Chepauk': 'MA Chidambaram Stadium',
-        
+        'MA Chidambaram Stadium': 'MA Chidambaram Stadium, Chepauk',
+        'MA Chidambaram Stadium, Chepauk': 'MA Chidambaram Stadium, Chepauk',
+        'MA Chidambaram Stadium, Chepauk, Chennai': 'MA Chidambaram Stadium, Chepauk',
+        'M.A. Chidambaram Stadium': 'MA Chidambaram Stadium, Chepauk',
+        'M.A.Chidambaram Stadium': 'MA Chidambaram Stadium, Chepauk',
+        'Chepauk': 'MA Chidambaram Stadium, Chepauk',
+
         # Sawai Mansingh Stadium variations
         'Sawai Mansingh Stadium': 'Sawai Mansingh Stadium',
         'Sawai Mansingh Stadium, Jaipur': 'Sawai Mansingh Stadium',
