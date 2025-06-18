@@ -70,6 +70,39 @@ def standardize_team_names(df):
 def standardize_venue_names(df):
     """Standardize venue names to handle variations"""
     venue_mapping = {
+        # Punjab Cricket Association Stadium, Mohali variations
+        'Punjab Cricket Association IS Bindra Stadium': 'Punjab Cricket Association Stadium, Mohali',
+        'Punjab Cricket Association IS Bindra Stadium, Mohali': 'Punjab Cricket Association Stadium, Mohali',
+        'Punjab Cricket Association IS Bindra Stadium, Mohali, Chandigarh': 'Punjab Cricket Association Stadium, Mohali',
+        'Punjab Cricket Association Stadium, Mohali': 'Punjab Cricket Association Stadium, Mohali',
+        'IS Bindra Stadium': 'Punjab Cricket Association Stadium, Mohali',
+        'I S Bindra Stadium': 'Punjab Cricket Association Stadium, Mohali',
+        'Punjab Cricket Association Stadium': 'Punjab Cricket Association Stadium, Mohali',
+        'PCA Stadium': 'Punjab Cricket Association Stadium, Mohali',
+
+        # DY Patil Stadium - single standardized name
+        'Dr DY Patil Sports Academy': 'DY Patil Stadium, Mumbai',
+        'Dr. DY Patil Sports Academy': 'DY Patil Stadium, Mumbai',
+        'Dr DY Patil Sports Academy, Mumbai': 'DY Patil Stadium, Mumbai',
+        'Dr. DY Patil Sports Academy, Mumbai': 'DY Patil Stadium, Mumbai',
+        'DY Patil Sports Academy': 'DY Patil Stadium, Mumbai',
+        'D.Y.Patil Stadium': 'DY Patil Stadium, Mumbai',
+        'DY Patil Stadium': 'DY Patil Stadium, Mumbai',
+
+
+        # Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium variations
+        'Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium, Visakhapatnam': 'Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium',
+        'Dr YS Rajasekhara Reddy ACA-VDCA Cricket Stadium, Visakhapatnam': 'Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium',
+        'Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium': 'Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium',
+        'Dr YS Rajasekhara Reddy ACA-VDCA Cricket Stadium': 'Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium',
+
+        # Rajiv Gandhi International Stadium variations
+        'Rajiv Gandhi International Stadium': 'Rajiv Gandhi International Stadium',
+        'Rajiv Gandhi International Stadium, Uppal': 'Rajiv Gandhi International Stadium',
+        'Rajiv Gandhi International Stadium, Uppal, Hyderabad': 'Rajiv Gandhi International Stadium',
+        'Rajiv Gandhi Intl. Cricket Stadium': 'Rajiv Gandhi International Stadium',
+        'Rajiv Gandhi International Cricket Stadium': 'Rajiv Gandhi International Stadium',
+        
         # M. Chinnaswamy Stadium variations
         'M Chinnaswamy Stadium': 'M. Chinnaswamy Stadium',
         'M. Chinnaswamy Stadium': 'M. Chinnaswamy Stadium',
@@ -99,34 +132,28 @@ def standardize_venue_names(df):
         'Chepauk Stadium': 'MA Chidambaram Stadium',
         'MA Chidambaram Stadium, Chepauk': 'MA Chidambaram Stadium',
         
-        # Rajiv Gandhi International Stadium variations
-        'Rajiv Gandhi International Stadium': 'Rajiv Gandhi International Stadium',
-        'Rajiv Gandhi Intl. Cricket Stadium': 'Rajiv Gandhi International Stadium',
-        'Rajiv Gandhi International Cricket Stadium': 'Rajiv Gandhi International Stadium',
-        
         # Sawai Mansingh Stadium variations
         'Sawai Mansingh Stadium': 'Sawai Mansingh Stadium',
         'Sawai Mansingh Stadium, Jaipur': 'Sawai Mansingh Stadium',
-        
-        # IS Bindra Stadium variations
-        'IS Bindra Stadium': 'IS Bindra Stadium',
-        'I S Bindra Stadium': 'IS Bindra Stadium',
-        'Punjab Cricket Association Stadium': 'IS Bindra Stadium',
-        'PCA Stadium': 'IS Bindra Stadium',
         
         # Other venues
         'Narendra Modi Stadium': 'Narendra Modi Stadium',
         'Sardar Patel Stadium': 'Narendra Modi Stadium',
         'Maharashtra Cricket Association Stadium': 'Maharashtra Cricket Association Stadium',
         'MCA Stadium': 'Maharashtra Cricket Association Stadium',
-        'Dr DY Patil Sports Academy': 'Dr. DY Patil Sports Academy',
-        'Dr. DY Patil Sports Academy': 'Dr. DY Patil Sports Academy',
-        'Brabourne Stadium': 'Brabourne Stadium',
+        'Dr DY Patil Sports Academy': 'DY Patil Stadium, Mumbai',        # Changed
+        'Dr. DY Patil Sports Academy': 'DY Patil Stadium, Mumbai',       # Changed
+        'DY Patil Sports Academy': 'DY Patil Stadium, Mumbai',           # Added
+        'D.Y.Patil Stadium': 'DY Patil Stadium, Mumbai',                # Added
+        'Brabourne Stadium': 'Brabourne Stadium, Mumbai',
+        'Brabourne Stadium, Mumbai': 'Brabourne Stadium, Mumbai',
         'Sharjah Cricket Stadium': 'Sharjah Cricket Stadium',
         'Dubai International Cricket Stadium': 'Dubai International Cricket Stadium',
         'Sheikh Zayed Stadium': 'Sheikh Zayed Stadium',
         'Himachal Pradesh Cricket Association Stadium': 'HPCA Stadium',
         'HPCA Stadium': 'HPCA Stadium',
+        'Himachal Pradesh Cricket Association Stadium, Dharamsala': 'HPCA Stadium',
+        'HPCA Stadium, Dharamsala': 'HPCA Stadium',
         'Holkar Cricket Stadium': 'Holkar Cricket Stadium',
         'Green Park': 'Green Park Stadium',
         'Barabati Stadium': 'Barabati Stadium',
